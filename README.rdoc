@@ -9,5 +9,6 @@ Stories:
 --------
 *As a user, I want to create an account with a username.  (Completed USING DEVISE)
 *As a user, I want to be able to signin with my username. (Complete)
+*As the CEO, I want my all users to receive a welcome email that welcomes them in a welcoming way.
 *As a user, I want to list my bnb unit.
 
