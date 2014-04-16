@@ -10,6 +10,7 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
+    @image = Image.new
    if @listing.save
       flash[:notice] = "Listing Added"
       redirect_to listing_path(@listing)

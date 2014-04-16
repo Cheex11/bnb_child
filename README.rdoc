@@ -10,5 +10,5 @@ Stories:
 *As a user, I want to create an account with a username.  (Completed USING DEVISE)
 *As a user, I want to be able to signin with my username. (Complete)
 *As the CEO, I want my all users to receive a welcome email that welcomes them in a welcoming way. (Complete - email sent to letter_opener)
-*As a user, I want to list my bnb unit (listing).
-
+*As a user, I want to list my bnb unit (listing). (Complete)
+*As a user, I want to add pictures of my sweet pad. (Complete)
