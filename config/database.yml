@@ -1,0 +1,8 @@
+
+development:
+  adapter: postgresql
+  database: Airbnbchild_development
+test:
+  adapter: postgresql
+  database: Airbnbchild_test
+

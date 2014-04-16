@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Airbnbchild</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+  <span class="logo"><%= link_to "The child of Airbnb", root_path %> </span>
+  <span class="pull-right">
+    <%= link_to "Sign Up", new_user_registration_path %> |
+    <% if current_user.nil? %>
+      <%= link_to "Login", new_user_session_path %> |
+    <% else %>
+      <%= link_to "Logout", destroy_user_session_path, method: "delete" %> |
+      <%= link_to "Profile", user_path(current_user) %>
+    <% end %>
+  </span>
+</nav>
+
+<div class='container'>
+  <%= flash[:notice] %>
+  <%= flash[:alert] %>
+  <%= yield %>
+
+</div>
+</body>
+</html>
