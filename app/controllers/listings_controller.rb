@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
   def new
     @listing = Listing.new
+    @image = Image.new
   end
 
   def show
@@ -20,6 +21,7 @@ class ListingsController < ApplicationController
 
   def edit
     @listing = Listing.find(params[:id])
+    @image = Image.new
   end
 
   def update
