@@ -1,1 +1,11 @@
 <h1> Building </h1>
+
+
+<ul>
+  <% @user.listings.each do |listing| %>
+    <li><%= link_to listing.title, listing_path(listing) %></li>
+  <%end%>
+</ul>
+
+
+<%= link_to "Add a new listing", new_listing_path, :class => 'btn btn-info' %>
