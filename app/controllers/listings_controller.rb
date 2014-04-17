@@ -1,6 +1,11 @@
 class ListingsController < ApplicationController
   def index
-    @listing = Listing.all
+    @query = params[:query]
+    if params[:query] == nil
+      @listing = Listing.all
+    else
+      @listing = Listing.search(params[:query])
+    end
   end
   def new
     @listing = Listing.new
@@ -77,7 +82,7 @@ class ListingsController < ApplicationController
 private
 
   def listing_params
-    params.require(:listing).permit(:price, :title, :location, :bedrooms, :bathrooms, :description, :user_id, :image)
+    params.require(:listing).permit(:price, :title, :location, :bedrooms, :bathrooms, :description, :user_id, :image, :query)
   end
 
 end

@@ -1,5 +1,10 @@
 <h1>Welcome We Hope You Find The Accomodations of Your Dreams</h1>
 
+<form action='/listings?query' method='get' id='search'>
+  <input id="search" type='text' name='query'>
+  <button> Search listings!</button>
+</form>
+
 <h3>Current Listings:<h3>
 <ul>
   <% @listing.each do |listing| %>

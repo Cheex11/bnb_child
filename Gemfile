@@ -16,6 +16,7 @@ gem 'smarter_csv'
 gem 'devise'
 gem 'remotipart'
 gem 'event-calendar', :require => 'event_calendar'
+gem 'textacular'
 
 
 group :development do
