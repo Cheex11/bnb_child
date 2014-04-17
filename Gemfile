@@ -14,7 +14,7 @@ gem 'bcrypt'
 gem 'faker'
 gem 'smarter_csv'
 gem 'devise'
-
+gem 'remotipart'
 
 
 group :development do

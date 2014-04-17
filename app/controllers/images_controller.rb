@@ -1,17 +1,27 @@
 class ImagesController < ApplicationController
-  def new
-    @image = Image.new
-  end
-  def create
-    @image = Image.new(image_params)
+
+  def index
     @listing = Listing.find(params[:listing_id])
+    @images = @listing.images
+  end
+
+  def create
+    @listing = Listing.find(params[:listing_id])
+    @image = Image.new(image_params)
+
     if @image.save
       @listing.images << @image
       flash[:notice] = "Image Uploaded"
-      redirect_to listing_path(@listing)
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.js
+      end
     else
       flash[:notice] = "Failure"
-      render edit_listing_path(@listing)
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.js
+      end
     end
   end
 

@@ -1,10 +1,9 @@
 Airbnbchild::Application.routes.draw do
 
-  root to: "users#index"
+  root to: "listings#index"
   devise_for :users
   resources :users, :only => [:show, :index]
   resources :listings do
-    resources :images, :only => [:new, :create, :destroy]
+    resources :images, :only => [:index, :create, :destroy]
   end
-  resources :images, :except => [:new, :create, :destroy]
 end

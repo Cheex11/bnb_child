@@ -11,23 +11,41 @@
     <h5><%= @listing.bathrooms %></h5>
     <h4> Price: </h4>
     <h5><%= @listing.price %></h5>
-
-    <% if @listing.user_id == current_user.id %>
-      <%= link_to "Edit Listing", edit_listing_path(@listing), :class => 'btn btn-info' %>
-    <% end %>
-    <% if @listing.user_id == current_user.id %>
-      <%= link_to "Delete Listing", listing_path(@listing), :class => 'btn btn-info', data: { :confirm => "are you sure", :method => "delete" } %>
-    <% end %>
   </div>
 
-  <div class='col-md-4'>
-    <% @listing.images.each do |image| %>
+  <div class='col-md-2'>
+    <% @listing.images.each do |image| %> <br> <%= listing.description %>
     <div class="panel panel-default">
       <div class="panel-body">
-       <p><%=image_tag image.photo.url(:medium) %><br>
+        <div class="photos">
+        <p><%= link_to (image_tag image.photo.url(:thumb)), listing_images_path(@listing) %><br>
+        </div>
       </div>
-    <div>
+    </div>
     <% end %>
   </div>
-
 </div>
+<hr>
+
+
+<% if current_user.id == @listing.user_id %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= render('layouts/errors', :object => @image) %>
+      <%= form_for [@listing, @image], remote: true, authenticity_token: true, html: { :multipart => true } do |f| %>
+        <div class="form-group">
+          <%= f.label :photo, "Select Photo" %>
+          <%= f.file_field :photo, class: 'form-control' %>
+        </div>
+        <%= f.submit 'Submit', class: 'btn btn-info' %>
+      <% end %>
+    </div>
+
+    <div class="col-md-8">
+
+      <%= link_to 'Edit Listing', edit_listing_path(@listing), :class => 'btn btn-info' %>
+      <%= link_to "Delete Listing", listing_path(@listing), :class => 'btn btn-info', data: { :confirm => "are you sure", :method => "delete" } %>
+
+    </div>
+  </div>
+<%end%>

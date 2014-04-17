@@ -1,10 +1,14 @@
 class ListingsController < ApplicationController
+  def index
+    @listing = Listing.all
+  end
   def new
     @listing = Listing.new
     @image = Image.new
   end
 
   def show
+    @image = Image.new
     @listing = Listing.find(params[:id])
   end
 

@@ -1,0 +1,15 @@
+<h1>Welcome We Hope You Find The Accomodations of Your Dreams</h1>
+
+<h3>Current Listings:<h3>
+<ul>
+  <% @listing.each do |listing| %>
+    <div class="row">
+      <div class='col-md-8'>
+        <li><%= listing.title %> <br> Description: <%= listing.description %>
+      </div>
+      <div class='col-md-4'>
+        <%= image_tag listing.images[0].photo.url(:thumb) %></l1>
+    </div>
+  </div>
+  <% end %>
+</ul>
