@@ -15,6 +15,11 @@ body {
   border-radius: 5px;
 }
 
+.photos {
+  float: left;
+  padding: 5px;
+}
+
 nav {
   background: #72FD72;
 }

@@ -11,10 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
+    <%= f.hidden_field :name, :value => @listing.title %>
+    <%= f.hidden_field :listing_id, :value => @listing.id %>
   <div class="field">
     <%= f.label :start_at %><br>
     <%= f.datetime_select :start_at %>

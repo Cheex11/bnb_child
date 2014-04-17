@@ -11,49 +11,53 @@
     <h5><%= @listing.bathrooms %></h5>
     <h4> Price: </h4>
     <h5><%= @listing.price %></h5>
-
-
-
-    <h1>Bookings:</h1>
-    <%= raw(event_calendar) %>
   </div>
 
-  <div class='col-md-2'>
+  <div class='col-md-6'>
     <% @listing.images.each do |image| %>
-    <div class="panel panel-default">
-      <div class="panel-body">
         <div class="photos">
-        <p><%= link_to (image_tag image.photo.url(:thumb)), listing_images_path(@listing) %><br>
+        <p><%= link_to (image_tag image.photo.url(:thumb)), listing_images_path(@listing) %>
         </div>
-      </div>
-    </div>
     <% end %>
   </div>
 </div>
 <hr>
 
-
-<% if current_user.id == @listing.user_id %>
-  <div class="row">
-    <div class="col-md-4">
-      <%= render('layouts/errors', :object => @image) %>
-      <%= form_for [@listing, @image], remote: true, authenticity_token: true, html: { :multipart => true } do |f| %>
-        <div class="form-group">
-          <%= f.label :photo, "Select Photo" %>
-          <%= f.file_field :photo, class: 'form-control' %>
-        </div>
-        <%= f.submit 'Submit', class: 'btn btn-info' %>
-      <% end %>
-    </div>
-
-    <div class="col-md-8">
-
-      <%= link_to 'Edit Listing', edit_listing_path(@listing), :class => 'btn btn-info' %>
-      <%= link_to "Delete Listing", listing_path(@listing), :class => 'btn btn-info', data: { :confirm => "are you sure", :method => "delete" } %>
-
-    </div>
+<div class="row">
+  <button class="new hide_buttons btn-info">Book This Listing</button>
+  <div class="hidden_form">
+    <h1>Bookings:</h1>
+    <%= raw(event_calendar) %><br>
+    <%= render('events/form') %>
   </div>
-<%end%>
+</div>
+
+
+
+
+<% if current_user != nil %>
+  <% if current_user.id == @listing.user_id %>
+    <div class="row">
+      <div class="col-md-4">
+        <%= render('layouts/errors', :object => @image) %>
+        <%= form_for [@listing, @image], remote: true, authenticity_token: true, html: { :multipart => true } do |f| %>
+          <div class="form-group">
+            <%= f.label :photo, "Select Photo" %>
+            <%= f.file_field :photo, class: 'form-control' %>
+          </div>
+          <%= f.submit 'Submit', class: 'btn btn-info' %>
+        <% end %>
+      </div>
+
+      <div class="col-md-8">
+
+        <%= link_to 'Edit Listing', edit_listing_path(@listing), :class => 'btn btn-info' %>
+        <%= link_to "Delete Listing", listing_path(@listing), :class => 'btn btn-info', data: { :confirm => "are you sure", :method => "delete" } %>
+
+      </div>
+    </div>
+  <%end%>
+<% end %>
 
 
 
