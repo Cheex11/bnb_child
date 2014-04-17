@@ -1,0 +1,33 @@
+body {
+  background: #679FD2;
+  font-family: 'Cinzel', serif;
+}
+.logo a {
+    color: #3D63BB;
+    font-family: 'Plaster', cursive;
+    font-size: 35px;
+}
+
+.panel-body {
+
+  /*background-color: #7FA5F7;*/
+  text-align: center;
+  border-radius: 5px;
+}
+
+nav {
+  background: #72FD72;
+}
+
+nav a {
+  color: #3D63BB;
+  font-family: 'Plaster', cursive;
+}
+a {
+  color: black;
+}
+
+.btn {
+  background: #72FD72;
+  color: black;
+}

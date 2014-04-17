@@ -1,0 +1,12 @@
+<%= render('layouts/errors', :object => @image ) %>
+
+<%= form_for  [@listing, @image] do |f| %>
+  <div class="form-group">
+    <%= f.label :photo, "Upload Image" %>
+    <%= f.file_field :photo %>
+  </div>
+    <%= f.submit :class => 'btn btn-info' %>
+<% end %>
+
+
+

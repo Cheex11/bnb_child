@@ -1,0 +1,21 @@
+<h1>Edit Listing</h1>
+<%= render('form') %>
+
+
+<button type="button" class="new btn-info hide_buttons">Upload Photo</button>
+
+
+<div class="hidden_form">
+  <%= render 'images/form' %>
+</div>
+
+<hr>
+<div class='row'>
+  </form>
+  <% @listing.images.each do |image| %>
+    <div class='col-sm-6'>
+      <p><%=image_tag image.photo.url(:medium) %></p>
+      <%= link_to "Delete Photo", listing_image_path(@listing, image), :class => 'btn btn-danger', data: { :confirm => "Are you sure?", :method => "delete" } %>
+    </div>
+  <% end %>
+</div>

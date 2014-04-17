@@ -1,0 +1,33 @@
+<div class='row'>
+  <div class='col-sm-6'>
+    <h1><%= @listing.title %></h1>
+    <h4> Description: </h4>
+    <h5><%= @listing.description %></h5>
+    <h4> Location: </h4>
+    <h5> <%= @listing.location %> </h5>
+    <h4> Bedrooms: </h4>
+    <h5><%= @listing.bedrooms %></h5>
+    <h4> Bathrooms: </h4>
+    <h5><%= @listing.bathrooms %></h5>
+    <h4> Price: </h4>
+    <h5><%= @listing.price %></h5>
+
+    <% if @listing.user_id == current_user.id %>
+      <%= link_to "Edit Listing", edit_listing_path(@listing), :class => 'btn btn-info' %>
+    <% end %>
+    <% if @listing.user_id == current_user.id %>
+      <%= link_to "Delete Listing", listing_path(@listing), :class => 'btn btn-info', data: { :confirm => "are you sure", :method => "delete" } %>
+    <% end %>
+  </div>
+
+  <div class='col-md-4'>
+    <% @listing.images.each do |image| %>
+    <div class="panel panel-default">
+      <div class="panel-body">
+       <p><%=image_tag image.photo.url(:medium) %><br>
+      </div>
+    <div>
+    <% end %>
+  </div>
+
+</div>
