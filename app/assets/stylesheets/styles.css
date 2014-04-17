@@ -23,8 +23,19 @@ nav a {
   color: #3D63BB;
   font-family: 'Plaster', cursive;
 }
+
 a {
   color: black;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  color: #72FD72;
+  background: #679FD2;
 }
 
 .btn {

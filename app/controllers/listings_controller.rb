@@ -8,8 +8,27 @@ class ListingsController < ApplicationController
   end
 
   def show
+    @month = (params[:month] || (Time.zone || Time).now.month).to_i
+    @year = (params[:year] || (Time.zone || Time).now.year).to_i
+    @shown_month = Date.civil(@year, @month)
+    event_strips = Event.event_strips_for_month(@shown_month)
+    @event_strips = [[]]
+
+    event_strips.each do |day|
+      day.each do |event|
+        if event == nil
+          @event_strips[0] << nil
+        elsif event[:name] == "Taken"
+          @event_strips[0] << event
+        else
+          @event_strips[0] << nil
+        end
+      end
+    end
+
     @image = Image.new
     @listing = Listing.find(params[:id])
+
   end
 
   def create

@@ -11,6 +11,11 @@
     <h5><%= @listing.bathrooms %></h5>
     <h4> Price: </h4>
     <h5><%= @listing.price %></h5>
+
+
+
+    <h1>Bookings:</h1>
+    <%= raw(event_calendar) %>
   </div>
 
   <div class='col-md-2'>
@@ -49,3 +54,6 @@
     </div>
   </div>
 <%end%>
+
+
+
