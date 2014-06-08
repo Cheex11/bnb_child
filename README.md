@@ -12,3 +12,7 @@ Stories:
 *As the CEO, I want my all users to receive a welcome email that welcomes them in a welcoming way. (Complete - email sent to letter_opener)
 *As a user, I want to list my bnb unit (listing). (Complete)
 *As a user, I want to add pictures of my sweet pad. (Complete)
+
+To do:
+______
+Redo even calendar to store more than 4 pads.
